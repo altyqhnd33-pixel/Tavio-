@@ -1,0 +1,19 @@
+name = "tavio"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "public"
+
+# الخدمات أدناه تحتاج إنشاءً يدويًا أولًا (انظر README). استبدل database_id بالمعرّف الحقيقي.
+[[d1_databases]]
+binding = "DB"
+database_name = "tavio-db"
+database_id = "REPLACE_WITH_REAL_D1_ID"
+
+[[r2_buckets]]
+binding = "FILES"
+bucket_name = "tavio-files"
+
+# متغيرات غير سرية. الأسرار (GEMINI_API_KEY, TAVIO_ACCESS_CODE) لا توضع هنا أبدًا.
+[vars]
+GEMINI_MODEL = "gemini-2.5-flash"   # تحقق من اسم النموذج المتاح في حسابك
+GEMINI_TIMEOUT_MS = "25000"
+GEMINI_MAX_ATTEMPTS = "3"

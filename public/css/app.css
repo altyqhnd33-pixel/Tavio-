@@ -1,0 +1,80 @@
+:root {
+  --ink: #1d2623;
+  --paper: #f7f6f1;
+  --card: #ffffff;
+  --rule: #d8d6cb;
+  --green: #1b3a34;
+  --muted: #5d6762;
+  --ok: #2f7d4f;
+  --busy: #3b6ea5;
+  --warn: #b7791f;
+  --bad: #b3372c;
+  --idle: #c9c6b8;
+  --r: 10px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 17px/1.65 system-ui, "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.top {
+  display: flex; align-items: baseline; gap: 12px; padding: 14px 16px;
+  background: var(--green); color: #fff;
+}
+.brand { color: #fff; text-decoration: none; font-weight: 700; letter-spacing: .08em; font-size: 20px; }
+.crumb { color: #b9cfc8; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+main { max-width: 640px; margin: 0 auto; padding: 16px; }
+h2 { font-size: 21px; margin: 4px 0 12px; }
+h3 { font-size: 18px; margin: 0 0 8px; }
+section { background: var(--card); border: 1px solid var(--rule); border-radius: var(--r); padding: 14px; margin-bottom: 14px; }
+p { margin: 6px 0; }
+.muted { color: var(--muted); font-size: 15px; }
+.error { color: var(--bad); font-weight: 600; }
+
+input[type=text], input[type=password] {
+  width: 100%; min-height: 48px; padding: 8px 12px; font: inherit;
+  border: 1px solid var(--rule); border-radius: var(--r); background: #fff;
+}
+button, .btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 8px 16px; font: inherit; font-weight: 600; cursor: pointer;
+  border: 1px solid var(--green); border-radius: var(--r); background: var(--green); color: #fff;
+}
+button.ghost, .btn.ghost { background: transparent; color: var(--green); }
+button.small { min-height: 40px; padding: 4px 12px; font-size: 15px; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+:focus-visible { outline: 3px solid #e0a82e; outline-offset: 2px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 10px; }
+.file-input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+
+ul.plain { list-style: none; margin: 0; padding: 0; }
+ul.plain li { border-top: 1px solid var(--rule); }
+ul.plain li:first-child { border-top: 0; }
+ul.plain a { display: block; padding: 12px 2px; color: var(--ink); text-decoration: none; }
+
+/* العنصر المميّز: شريط مقاطع، كل مقطع = ورقة طالب بلون حالتها */
+.strip { display: flex; gap: 3px; margin: 10px 0 6px; }
+.strip i { flex: 1; height: 14px; border-radius: 3px; background: var(--idle); }
+.strip i.uploading, .strip i.processing { background: var(--busy); }
+.strip i.uploaded { background: #8fb0cf; }
+.strip i.success { background: var(--ok); }
+.strip i.needs_review { background: var(--warn); }
+.strip i.failed { background: var(--bad); }
+
+.paper { padding: 10px 0; border-top: 1px solid var(--rule); }
+.paper:first-child { border-top: 0; }
+.paper .head { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.paper .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.chip { font-size: 14px; padding: 2px 10px; border-radius: 99px; border: 1px solid currentColor; white-space: nowrap; }
+.chip.success { color: var(--ok); }
+.chip.uploading, .chip.processing { color: var(--busy); }
+.chip.needs_review { color: var(--warn); }
+.chip.failed { color: var(--bad); }
+.chip.pending, .chip.uploaded { color: var(--muted); }
+.paper .why { margin: 4px 0 0; font-size: 15px; color: var(--muted); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .strip i { transition: background-color .25s; }
+}

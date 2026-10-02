@@ -1,0 +1,3 @@
+# انسخه إلى .dev.vars للتشغيل المحلي فقط. لا ترفع .dev.vars إلى GitHub.
+GEMINI_API_KEY=
+TAVIO_ACCESS_CODE=
